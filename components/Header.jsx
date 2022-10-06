@@ -6,6 +6,7 @@ import  {useStore}  from "../store/store"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Cookies from "js-cookie"
+import UserModal from "../components/UserModal"
 
 const Header = () => {
     
@@ -21,13 +22,16 @@ const Header = () => {
     const darkModeOn = useStore((state) => state.darkModeOn)
     const darkModeOff = useStore((state) => state.darkModeOff)
     const userInfo= useStore((state) => state.userInfo)
-    
-    
+    //User modal state
+    const [userModal, setUserModal]= useState(false)
 
     const handlerDarkMode= () =>{
        darkMode ? darkModeOff() : darkModeOn()
        const newMode= !darkMode
        Cookies.set('darkMode', darkMode ? 'ON' : 'OFF')
+    }
+    const handleUserModal= () =>{
+        setUserModal((prevState) => !prevState)
     }
     
 
@@ -64,9 +68,9 @@ const Header = () => {
                     <UilSun className={!darkMode && `${styles.active}`} onClick={handlerDarkMode}/>
                     <UilMoon  className={ darkMode &&  `${styles.active}`} onClick={handlerDarkMode}/>
                 </div>
-                <Link href="/">
-                    {userInfo 
-                    ? <p className={styles.user}>{userInfo.data.name}</p> 
+                
+                {userInfo 
+                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.name}</p> 
                     : (
                         <>
                             <Link href="/login">
@@ -74,17 +78,18 @@ const Header = () => {
                         
                             </Link>
             
-                    
                             <Link href="/register">
                                 <button className={`btn ${styles.signUp}`}>Register</button>
                             </Link>
                         </>
                         
     
-                    )}
-                </Link>
-               
-              
+                )}
+                    
+                
+                <UserModal
+                isOpen={userModal}
+                />
                
                 <Link href="/cart">
                     <div className={styles.cart}>

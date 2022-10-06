@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import  {useStore}  from "../store/store";
 import Cookies from "js-cookie";
 import { getError } from "../utils/error";
+import { client } from "../lib/client";
 
 
 const Register = () => {
@@ -70,21 +71,20 @@ const Register = () => {
            setFormErrors(validate(formData)) 
            setIsSubmit(true)
            if(Object.keys(formErrors).length === 0 && isSubmit){
-
-            try {
                 createUser({...formData})
-            const id= await createUser({...formData})
-            typeof window !== 'undefined' && localStorage.setItem('user', id)
-            toast.success("Account Created!")
-    
-            // router.push(`/user/${id}`)
-            login(formData)
-            Cookies.set('userInfo', JSON.stringify(formData));
-            router.push("/")
-            }   
-             catch (error) {
-                toast.error(getError(error))
-            }
+                const id= await createUser({...formData})
+                typeof window !== 'undefined' && localStorage.setItem('user', id)
+                toast.success("Account Created!")
+                // router.push(`/user/${id}`)
+                login(formData)
+                Cookies.set('userInfo', JSON.stringify(formData));
+                router.push("/")
+                
+                
+                // toast.error("Account exists, login instead!")
+            
+                
+            
         }
     
            
