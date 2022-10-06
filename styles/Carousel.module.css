@@ -1,0 +1,47 @@
+.carousel{
+    display: flex;
+    position: relative;
+}
+
+.carousel:hover .arrow{
+  opacity: 1;
+}
+
+
+.imageContainer{
+  width: 30rem;
+  height: 30rem;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+  margin-left: 4rem;
+  display: none;
+  transition: 1s ease;
+}
+
+.currentSlide{
+  display: block;
+  transition-duration: 1s;
+  transform: scale(1.08);    
+}
+
+.arrow{
+  cursor: pointer;
+  position: absolute;
+  top: 14rem;
+  z-index: 999;
+  opacity: 0;
+  background-color: rgb(238, 236, 236);
+  border-radius: 2rem;
+  width: 2rem;
+  height: 2rem;
+ 
+}
+
+
+.prev{
+   left: 3rem; 
+}
+
+.next{
+   left: 33rem;
+}
