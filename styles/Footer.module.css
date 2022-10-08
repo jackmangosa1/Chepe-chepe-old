@@ -3,7 +3,6 @@
     justify-content: space-between;
     gap: 4rem;
     font-size: 0.812rem;
-    /* background: #f1f1f1; */
     padding: 30px 70px;
     color: #222;
     margin-top: 2rem;
@@ -17,7 +16,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
-
+    
 }
 
 .logo{
@@ -57,7 +56,7 @@
 
 .social>*:hover{
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.09);
 }
 
 .bold{

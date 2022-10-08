@@ -25,23 +25,23 @@ const Services = () => {
             </div>
 
             <div className={styles.service}>
-                <div className={styles.imageWrapper}>
+                    <div className={styles.imageWrapper}>
                         <Image src={Service2} alt="" objectFit="cover" layout="intrinsic"/> 
                     </div>
 
-                    <span>Fast Delivery</span>
-                    <span>Delivery that is always on time even faster</span>
-                </div>
+                <span>Fast Delivery</span>
+                <span>Delivery that is always on time even faster</span>
+            </div>
 
             <div className={styles.service}>
                 <div className={styles.imageWrapper}>
                         <Image src={Service3} alt="" objectFit="cover" layout="intrinsic"/> 
-                    </div>
-
-                    <span>Quality Food</span>
-                    <span>Not only fast for us, quality is also number one</span>
-
                 </div>
+
+                <span>Quality Food</span>
+                <span>Not only fast for us, quality is also number one</span>
+
+            </div>
         </div>
         </>
       );
