@@ -3,9 +3,19 @@
     top: 4.5rem;
     border-radius: 0.5rem;
     background-color: rgb(243, 224, 224);
-    padding: 1rem;
+    padding: 1rem 0;
+}
+
+.container > p{
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.container > p:last-child{
+    margin-bottom: 0;
 }
 
 .container > p:hover{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.05);
+     cursor: pointer;
 }

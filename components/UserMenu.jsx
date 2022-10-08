@@ -1,7 +1,12 @@
-import styles from "../styles/UserMenu.module.css"
+import styles from "../styles/UserMenu.module.css";
 import Link from "next/link";
+import { useStore } from "../store/store";
 
-const UserMenu= ({isOpen}) =>(
+const UserMenu= ({isOpen}) =>{ 
+    //Importing logout from store
+    const logout= useStore((state) => state.logout)
+
+    return(
     isOpen && (
         <div className={styles.container}>
             <Link href='/profile'>
@@ -11,12 +16,11 @@ const UserMenu= ({isOpen}) =>(
             <Link href='/order-history'>
                 <p>Order History</p>
             </Link>
-
-            <p>Logout</p>
+            <p onClick={logout}>Logout</p>
 
         </div>
     )
       
-)
+)}
 
 export default UserMenu;
