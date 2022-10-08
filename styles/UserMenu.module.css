@@ -6,6 +6,6 @@
     padding: 1rem;
 }
 
-.container> p:hover{
-    background-color: rgb(221, 221, 221);
+.container > p:hover{
+    background-color: black;
 }

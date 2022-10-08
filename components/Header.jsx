@@ -6,7 +6,7 @@ import  {useStore}  from "../store/store"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Cookies from "js-cookie"
-import UserModal from "../components/UserModal"
+import UserMenu from "./UserMenu"
 
 const Header = () => {
     
@@ -87,7 +87,7 @@ const Header = () => {
                 )}
                     
                 
-                <UserModal
+                <UserMenu
                 isOpen={userModal}
                 />
                
