@@ -39,16 +39,13 @@
 
 .btn{
     padding: 1rem 2.5rem;
-    background: transparent;
     border: 1px solid var(--themeRed);
-    color: var(--themeRed);
-    border-radius: 0;
+    color: white;
     outline: none;
 }
 
 .btn:hover{
-    background-color: var(--themeRed);
-    color: white;
+    background-color: rgba(245,71,72, 0.97);
     cursor: pointer;
 }
 
