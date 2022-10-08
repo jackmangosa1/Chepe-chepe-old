@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       break;
     }
 
-    if( user && bcrypt.compareAsync(req.body.password, user.password)){
+    if( user && bcrypt.compareSync(req.body.password, user.password)){
         const token= signToken({
             _id: user.id,
             name: user.name,
