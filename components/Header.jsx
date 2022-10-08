@@ -10,7 +10,6 @@ import UserMenu from "./UserMenu"
 
 const Header = () => {
     
-
     const [order, setOrder] = useState("")
     useEffect(() =>{
         setOrder(localStorage.getItem("order"))
@@ -22,6 +21,7 @@ const Header = () => {
     const darkModeOn = useStore((state) => state.darkModeOn)
     const darkModeOff = useStore((state) => state.darkModeOff)
     const userInfo= useStore((state) => state.userInfo)
+    console.log(userInfo)
     //User modal state
     const [userModal, setUserModal]= useState(false)
 
@@ -70,7 +70,7 @@ const Header = () => {
                 </div>
                 
                 {userInfo 
-                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.name}</p> 
+                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.data.name}</p> 
                     : (
                         <>
                             <Link href="/login">

@@ -71,13 +71,13 @@ const Register = () => {
            setFormErrors(validate(formData)) 
            setIsSubmit(true)
            if(Object.keys(formErrors).length === 0 && isSubmit){
-                createUser({...formData})
+                // createUser({...formData})
                 const id= await createUser({...formData})
                 typeof window !== 'undefined' && localStorage.setItem('user', id)
                 toast.success("Account Created!")
                 // router.push(`/user/${id}`)
                 login(formData)
-                Cookies.set('userInfo', JSON.stringify(formData));
+                Cookies.set('userInfo', JSON.stringify(formData.name));
                 router.push("/")
                 
                 
