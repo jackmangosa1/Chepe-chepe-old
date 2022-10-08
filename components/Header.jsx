@@ -70,7 +70,7 @@ const Header = () => {
                 </div>
                 
                 {userInfo 
-                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.name}</p> 
+                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.data.name}</p> 
                     : (
                         <>
                             <Link href="/login">

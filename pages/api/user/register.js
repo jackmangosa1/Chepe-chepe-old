@@ -7,15 +7,15 @@ export default async function handler(req, res) {
     switch(req.method){
         case "POST": const newUser = await JSON.parse(req.body);
 
-      const userExist= await client.fetch(
-        `*[_type == "user" && email == $email][0]`, 
-        {
-        email: req.body.email
-        })
+    //   const userExist= await client.fetch(
+    //     `*[_type == "user" && email == $email][0]`, 
+    //     {
+    //     email: req.body.email
+    //     })
         
-        if(userExist){
-            return res.status(401).send({message: 'Email already exists'})
-        }
+    //     if(userExist){
+    //         return res.status(401).send({message: 'Email already exists'})
+    //     }
         try {
             await client.create({
                 _type: "user",
