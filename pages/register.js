@@ -77,7 +77,7 @@ const Register = () => {
                 toast.success("Account Created!")
                 // router.push(`/user/${id}`)
                 login(formData)
-                Cookies.set('userInfo', JSON.stringify(formData.name));
+                Cookies.set('userInfo', JSON.stringify(formData.email));
                 router.push("/")
                 
                 

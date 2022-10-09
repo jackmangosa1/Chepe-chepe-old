@@ -21,17 +21,18 @@ const Header = () => {
     const darkModeOn = useStore((state) => state.darkModeOn)
     const darkModeOff = useStore((state) => state.darkModeOff)
     const userInfo= useStore((state) => state.userInfo)
-    console.log(userInfo)
+    
+
     //User modal state
-    const [userModal, setUserModal]= useState(false)
+    const [userMenu, setUserMenu]= useState(false)
 
     const handlerDarkMode= () =>{
        darkMode ? darkModeOff() : darkModeOn()
        const newMode= !darkMode
        Cookies.set('darkMode', darkMode ? 'ON' : 'OFF')
     }
-    const handleUserModal= () =>{
-        setUserModal((prevState) => !prevState)
+    const handleUserMenu= () =>{
+        setUserMenu((prevState) => !prevState)
     }
     
 
@@ -70,8 +71,9 @@ const Header = () => {
                 </div>
                 
                 {userInfo 
-                    ? <p className={styles.user} onClick={handleUserModal} >{userInfo.data.name}</p> 
+                    ? <p className={styles.user} onClick={handleUserMenu} >{userInfo.data.email}</p>
                     : (
+                        
                         <>
                             <Link href="/login">
                                 <button className={` btn ${styles.login}`}>Login</button>
@@ -81,6 +83,7 @@ const Header = () => {
                             <Link href="/register">
                                 <button className={`btn ${styles.signUp}`}>Register</button>
                             </Link>
+                            
                         </>
                         
     
@@ -88,7 +91,8 @@ const Header = () => {
                     
                 
                 <UserMenu
-                isOpen={userModal}
+                isOpen={userMenu}
+                menuFunction={setUserMenu}
                 />
                
                 <Link href="/cart">

@@ -15,7 +15,6 @@
   transition: all 1s ease-in-out;
   margin-left: 4rem;
   display: none;
-  transition: 1s ease;
 }
 
 .currentSlide{

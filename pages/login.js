@@ -46,9 +46,9 @@ const Login = () => {
            setFormErrors(validate(formData)) 
            setIsSubmit(true)
            if(Object.keys(formErrors).length === 0 && isSubmit){
-    
+            
             login(formData)
-            Cookies.set('userInfo', JSON.stringify(formData));
+            Cookies.set('userInfo', JSON.stringify(formData.email));
             router.push("/")
             }  
    
