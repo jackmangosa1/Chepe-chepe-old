@@ -1,7 +1,7 @@
 import styles from "../styles/Hero.module.css";
 import Image from "next/image";
 import Cherry from "../assets/cherry.png";
-import {UilPhone} from "@iconscout/react-unicons";
+import {UilPhone, UilWhatsapp} from "@iconscout/react-unicons";
 import Pizza1 from "../assets/p1.jpg";
 import Link from "next/link";
 import {urlFor} from "../lib/client";
@@ -41,13 +41,19 @@ const Hero = ({heroImages}) => {
             {/* RIGHT SIDE */}
             <div className={styles.right}>
                 <Carousel heroImages={heroImages}/>
+                <Link href="https://api.whatsapp.com/send/?phone=243971534162" >
+                    <a target="_blank" rel="noopener noreferrer">
+                        <div className={styles.contactUs}>
+                            <div>
+                                <UilWhatsapp color="white"/>  
+                            </div>
+
+                            <span>Whatsapp Us</span>
+                        </div>
+                    </a>
+                    
+                </Link>
                 
-                <div className={styles.contactUs}>
-                    <span>Contact Us</span>
-                    <div>
-                        <UilPhone color="white"/>
-                    </div>
-                </div>
 
                 
             </div>

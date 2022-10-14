@@ -68,7 +68,7 @@ export const useStore =  create(
 
        //User logout 
        logout: () =>
-       set(() =>({
+       set((state) =>({
         userInfo: null,
         cart: {
             pizzas: []

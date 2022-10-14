@@ -5,6 +5,8 @@ import Layout from "../components/Layout"
 import styles from "../styles/Login.module.css"
 import  {useStore}  from "../store/store";
 import Cookies from "js-cookie";
+import {loginUser} from "../lib/loginHandler"
+
 
 const Login = () => {
     const router = useRouter()
@@ -46,7 +48,9 @@ const Login = () => {
            setFormErrors(validate(formData)) 
            setIsSubmit(true)
            if(Object.keys(formErrors).length === 0 && isSubmit){
-            
+            //login function handler
+            loginUser(formData)
+            //login function in the store 
             login(formData)
             Cookies.set('userInfo', JSON.stringify(formData.email));
             router.push("/")
