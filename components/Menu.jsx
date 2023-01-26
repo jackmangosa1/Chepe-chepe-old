@@ -2,9 +2,31 @@ import styles from "../styles/Menu.module.css"
 import Image from "next/image";
 import {urlFor} from "../lib/client"
 import Link from "next/link"
+import { useState } from "react";
+import {UilAngleRight, UilMessage} from "@iconscout/react-unicons"
+import chef from "../assets/chef.jpg"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 
-const Menu = ({pizzas}) => {
+const Menu = ({food, foodCategories}) => {
+    let mobile;
+    if(typeof window !== 'undefined'){
+        mobile= window.innerWidth <= 740 ? true : false
+    }
+    const[menuData, setMenuData]=useState(food)
+    const[activeId, setActiveId] = useState(0)
+
+    const onClickHandler = (id, categoryId)=>{
+        filter(categoryId)
+        setActiveId(id)
+    }
+    const filter = (categoryId)=>{
+        setMenuData(food.filter((item)=> item.category._ref == categoryId))
+    }
+
 
     return ( 
         <div className={styles.container} id="menu">
@@ -13,39 +35,114 @@ const Menu = ({pizzas}) => {
                 <span>Menu that always</span>
                 <span>Make you drool</span>
             </div>
+         
+             {/* FOOD CATEGORIES AND MENU */}
+            <div className={styles.products}>
+                <ul className={styles.sidebar}>
+                    {foodCategories.map((category, id) =>{
+                        return(
+                            <li key={id} className={activeId == id ? `${styles.row} ${styles.active}`: `${styles.row}`} onClick= {()=>onClickHandler(id, category._id) }>
+                                <div className={styles.rowTitle}>{category.title}</div>
+                            </li>
+                        )
+                    })}
+                </ul>
 
-            {/* FOOD */}
-            <div className={styles.menu}>
-           
-                 {pizzas.map((pizza, id) =>{
-                    const src = urlFor(pizza.image).url()
-                
-                return(
-                    
-                        <div className={styles.pizza} key={id}>
-                            <Link href={`./pizza/${pizza.slug.current}`}>
-                                <div className={styles.imageWrapper}>
-                                    
-                                    <Image 
-                                        loader= {() => src} 
-                                        src={src} 
-                                        alt=""
-                                        objectFit="cover"
-                                        layout="fill"
-                                    /> 
-                                </div>
-                            </Link>
-                          
-                            <span>{pizza.name} </span>
-                            <span><span style={{color: "var(--themeRed)"}}>$</span>{pizza.price[1]}</span>
-                           
-
-                        </div>
-                )})}  
-              
+                <div className={styles.menu}>
              
+                    { menuData.map((dish, id)=>{
+                        const src = urlFor(dish.image).url()
+                    
+                        return(
+                            <div key={id} className={styles.dish}>
+                               {mobile || <div className={styles.webMenu}>
+                                    <Link href={`./food/${dish.slug.current}`}>
+                                            <div className={styles.imageWrapper}>
+                                                <Image 
+                                                    loader= {() => src} 
+                                                    src={src} 
+                                                    alt=""
+                                                    objectFit="cover"
+                                                    layout="fill"
+                                                />
+                                            </div>
+                                    </Link>
+                                    <div className={styles.details}>
+                                            <div className={styles.name}>
+                                                <span>{dish.name}</span>
+                                            </div>
+                                            <span><span style={{color: "var(--themeRed)", fontSize: "1.2rem"}}> $</span>{dish.price[1]}</span>
+                                        
+                                            <Link href={`./food/${dish.slug.current}`}>
+                                                <div className={styles.order}>
+                                                    <div>Order Now</div>
+                                                    <UilAngleRight/>
+                                                </div>
+                                            </Link>
+                                    </div>
+
+                               </div>}
+                                        
+
+                                
+
+                                {mobile && 
+                                    <div className={styles.mobileMenu}>
+                                        <Swiper
+                                            modules={[Navigation]}
+                                            navigation
+                                            speed={800}
+                                            slidesPerView={1}
+                                            loop
+                                            className={styles.mySwiper}
+                                        >
+
+                                                
+                                                <SwiperSlide>
+                                                    <Image 
+                                                    loader= {() => src} 
+                                                    src={src}
+                                                    alt=""
+                                                    height={200}
+                                                    width={200}
+                                                />
+
+                                                </SwiperSlide> 
+
+                                         
+                                        </Swiper> 
+
+                                    </div> 
+                               
+                              
+                                }
+
+                               
+                            
+                            
+                            </div>
+                        )
+                    })}
+
+
+                    
+                </div>
             
             </div>
+            
+
+            <div className={styles.heading} id="contact">
+                    <span>GET IN TOUCH</span>
+                    <span>Question or feedback?</span>
+                    <span>We'd love to hear from you</span>
+                    
+            </div>
+            <div>
+                <input type="email" className={styles.email}  placeholder="Email Address" />
+                <UilMessage className={styles.message}/>
+            </div>
+     
+           
         </div>
      );
 }

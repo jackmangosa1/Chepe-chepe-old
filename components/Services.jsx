@@ -14,7 +14,7 @@ const Services = () => {
         </div>
 
         {/* SERVICES */}
-        <div className={styles.services}>
+        <div className={styles.services} id="services">
             <div className={styles.service}>
                 <div className={styles.imageWrapper}>
                     <Image src={Service1} alt="" objectFit="cover" layout="intrinsic"/> 

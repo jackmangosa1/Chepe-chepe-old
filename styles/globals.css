@@ -71,3 +71,17 @@ a {
   background-color: var(--themeRed);
 }
 
+.swiper-button-next,
+.swiper-button-prev{
+  color: black !important;
+}
+
+.swiper-pagination-bullet-active {
+   background-color: var(--themeRed) !important; 
+  }
+
+.swiper-pagination-bullet{
+  width: 0.7rem !important;
+  height: 0.7rem !important;
+}
+

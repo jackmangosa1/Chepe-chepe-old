@@ -10,7 +10,7 @@ import { useStore } from "../../store/store";
 import toast, {Toaster} from "react-hot-toast"
 
 
-const Pizza = ({pizza}) => {
+const Food = ({pizza}) => {
 
     const src = urlFor(pizza.image).url()
     const [size, setSize] = useState(1)
@@ -115,7 +115,7 @@ const Pizza = ({pizza}) => {
      );
 }
  
-export default Pizza;
+export default Food;
 
 export async function getStaticPaths(){
     const query = '*[_type=="pizza" && defined(slug.current)][].slug.current'
@@ -130,7 +130,7 @@ export async function getStaticPaths(){
 export async function getStaticProps(context){
     
     const {slug = ""} = context.params
-    const query = `*[_type =="pizza" && slug.current == '${slug}'][0]`
+    const query = `*[_type =="food" && slug.current == '${slug}'][0]`
     const pizza = await client.fetch(query)
 
     return{

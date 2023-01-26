@@ -1,46 +1,32 @@
 .carousel{
-    display: flex;
-    position: relative;
+    max-width: 35rem;
+    height: 40rem;
+    margin-top: -1rem;
+    margin-left: 2rem;
 }
 
-.carousel:hover .arrow{
-  opacity: 1;
-}
-
-
-.imageContainer{
-  width: 30rem;
-  height: 30rem;
-  overflow: hidden;
-  transition: all 1s ease-in-out;
-  margin-left: 4rem;
-  display: none;
-}
-
-.currentSlide{
-  display: block;
-  transition-duration: 1s;
-  transform: scale(1.08);    
-}
-
-.arrow{
-  cursor: pointer;
-  position: absolute;
-  top: 14rem;
-  z-index: 999;
-  opacity: 0;
-  background-color: rgb(233, 232, 232);
-  border-radius: 2rem;
-  width: 2rem;
-  height: 2rem;
- 
+.mySwiper{
+  width: 100%;
 }
 
 
-.prev{
-   left: 3rem; 
+.image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.next{
-   left: 33rem;
+/* RESPONSIVE DESIGN */
+@media  screen and (max-width: 480px) {
+  .carousel{
+    max-width: 20rem;
+    height: 20rem;
+    margin-top: -2rem;
+    margin-left: -3.8rem;
+  }
 }
+
+
+
+
+

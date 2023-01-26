@@ -76,8 +76,8 @@ const Register = () => {
                 typeof window !== 'undefined' && localStorage.setItem('user', id)
                 toast.success("Account Created!")
                 // router.push(`/user/${id}`)
-                login(formData)
                 Cookies.set('userInfo', JSON.stringify(formData.email));
+                login(formData)
                 router.push("/")
                 
                 

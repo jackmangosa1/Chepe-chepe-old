@@ -9,8 +9,7 @@ import Menu from "../components/Menu";
 
 
 
-export default function Home({ pizzas, heroImages }) {
-  
+export default function Home({ food, heroImages, foodCategories}) {
   return (
     <Layout>
       <div className={styles.container}>
@@ -24,7 +23,7 @@ export default function Home({ pizzas, heroImages }) {
         <main>
           <Hero heroImages={heroImages} />
           <Services />
-          <Menu pizzas={pizzas} />
+          <Menu food={food} foodCategories={foodCategories} />
         </main>
       </div>
     </Layout>
@@ -34,15 +33,19 @@ export default function Home({ pizzas, heroImages }) {
 
 
 export const getServerSideProps = async () => {
-  const pizzaQuery = '*[_type == "pizza"]'
-  const pizzas = await client.fetch(pizzaQuery)
+  const foodQuery = '*[_type == "food"]'
+  const food = await client.fetch(foodQuery)
   const heroImageQuery = '*[_type == "banner"]'
   const heroImages = await client.fetch(heroImageQuery)
+  const foodCategoryQuery= '*[_type == "category"]'
+  const foodCategories = await client.fetch(foodCategoryQuery)
+  
+  
   return {
     props: {
-      pizzas,
+      food,
       heroImages,
-
+      foodCategories,
     }
   }
 

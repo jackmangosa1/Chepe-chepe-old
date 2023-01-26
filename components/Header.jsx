@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css"
 import Image from "next/image"
 import Logo from "../assets/logo.png"
-import {UilShoppingBag, UilReceipt, UilSun, UilMoon} from "@iconscout/react-unicons"
+import {UilShoppingBag, UilReceipt, UilSun, UilMoon, UilBars, UilTimes} from "@iconscout/react-unicons"
 import  {useStore}  from "../store/store"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -9,12 +9,20 @@ import Cookies from "js-cookie"
 import UserMenu from "./UserMenu"
 
 const Header = () => {
-    
+    let mobile;
+    if(typeof window !== 'undefined'){
+         mobile=  window.innerWidth <= 740 ? true : false
+    }
     const [order, setOrder] = useState("")
     useEffect(() =>{
         setOrder(localStorage.getItem("order"))
     }, [])
     
+    //Function to open and close the navigation menu on mobile
+    const[mobileMenu, setMobileMenu] = useState(false)
+   const mobileNavigation= ()=>{
+        setMobileMenu(true)
+   }
 
     const items = useStore((state) => state.cart.pizzas.length)
     const darkMode = useStore((state) => state.mode.darkMode)
@@ -38,10 +46,12 @@ const Header = () => {
 
     return ( 
         <div className={styles.header}>
+             {/* HAMBURGER */}
+             {/* {mobile &&<UilBars/>} */}
             {/* LOGO SIDE */}
             <div className={styles.logo}>
                 <Image src={Logo} alt="" width={50} height={50}/> 
-                <span>Chepe-chepe</span>
+                <span className={styles.logoText}>Chepe-chepe</span>
             </div>
 
             {/* MENU SIDE */}
@@ -51,15 +61,15 @@ const Header = () => {
                 </li>
 
                 <li>
-                    <Link href='#menu'>Menu</Link>
+                    <Link href='../#menu'>Menu</Link>
                 </li>
 
                 <li>
-                    <Link href=''>Contact</Link>
+                    <Link href='../#contact'>Contact</Link>
                 </li>
 
                 <li>
-                    <Link href=''>Services</Link>
+                    <Link href='../#services'>Services</Link>
                     </li>
             </ul>
 
@@ -71,10 +81,10 @@ const Header = () => {
                 </div>
                 
                 {userInfo 
-                    ? <p className={styles.user} onClick={handleUserMenu} >{userInfo.data.email}</p>
+                    ? <p className={styles.user} onClick={handleUserMenu} >{userInfo}</p>
                     : (
                         
-                        <>
+                        <div className={styles.authButton}> 
                             <Link href="/login">
                                 <button className={` btn ${styles.login}`}>Login</button>
                         
@@ -84,17 +94,17 @@ const Header = () => {
                                 <button className={`btn ${styles.signUp}`}>Register</button>
                             </Link>
                             
-                        </>
+                        </div>
                         
     
                 )}
                     
-                
+                {/* USER MENU */}
                 <UserMenu
                 isOpen={userMenu}
                 menuFunction={setUserMenu}
                 />
-               
+
                 <Link href="/cart">
                     <div className={styles.cart}>
                         <UilShoppingBag size={35} color="#2E2E2E"/>
@@ -111,7 +121,30 @@ const Header = () => {
                         </div>
                     </Link>
                 )}
-               
+
+                {/* MOBILE MENU */}
+                { mobile && <UilBars className={styles.hamburger} onClick={mobileNavigation}/> }
+
+                {(mobile && mobileMenu) &&
+                <ul className={styles.mobileMenu}>
+                    <UilTimes onClick={() =>setMobileMenu(false)}/>
+                    <li>
+                    <Link href='../'>Home</Link>
+                    </li>
+
+                    <li>
+                        <Link href='../#menu'>Menu</Link>
+                    </li>
+
+                    <li>
+                        <Link href='../#contact'>Contact</Link>
+                    </li>
+
+                    <li>
+                        <Link href='../#services'>Services</Link>
+                    </li>
+                </ul>}
+
             </div>
         </div>
             

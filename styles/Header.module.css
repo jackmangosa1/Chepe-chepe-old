@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    position: relative;
 }
 
 .logo{
@@ -82,8 +83,6 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: rgb(243, 224, 224);
-    
-   
 }
 
 .toggler>*{
@@ -101,3 +100,47 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* MOBILE RESPONSIVNESS */
+
+@media screen and (max-width: 480px){
+    .menu{
+        display: none;
+    }
+    .logoText{
+        display: none;
+    }
+    .authButton{
+        display: none;
+    }
+    .toggler{
+        display: none;
+    }
+    .hamburger{
+        margin-top: 0.5rem;
+    }
+    .mobileMenu{
+        position: absolute;
+        list-style: none;
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        background-color: rgb(243, 224, 224);
+        z-index: 2;
+    }
+
+    .mobileMenu>:nth-child(1){
+        position: absolute;
+        margin-bottom: 2rem;
+        margin-left: 3.5rem;
+        margin-top: -1.2rem;
+    }
+
+    .mobileMenu>li:hover{
+        cursor: pointer;
+        color: var(--themeRed);
+    }
+
+  
+
+}
+

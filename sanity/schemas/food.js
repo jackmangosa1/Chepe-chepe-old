@@ -1,6 +1,8 @@
+import category from "./category";
+
 export default{
-    name: "pizza",
-    title: "Pizza",
+    name: "food",
+    title: "Food",
     type: "document",
     fields: [
         {
@@ -18,6 +20,13 @@ export default{
             title: "name",
             type: "string",
 
+        },
+
+        {
+            name: "category",
+            title: "Category",
+            type: "reference",
+            to: [{type: 'category'}]
         },
 
         {
@@ -43,9 +52,6 @@ export default{
             title: "details",
             type: "string"
         }
-
-        
-
-        
+  
     ]
 }

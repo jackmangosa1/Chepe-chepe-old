@@ -23,16 +23,16 @@ const Footer = () => {
                <span className={`${styles.bold} ${styles.contact}`}>Contacts</span>
               <div className={styles.info}>
                 
-                <span className={styles.bold}>Address: </span>
+                <span className={styles.bold}>Address : </span>
                 <span>Goma, Virunga, Kagephar 74</span>
               </div>
                <div className={styles.info}>
-                <span className={styles.bold}>Phone: </span>
+                <span className={styles.bold}>Phone : </span>
                 <span>+243971534162</span>
 
                </div>
               <div >
-                <span className={styles.bold}>Hours:</span>
+                <span className={styles.bold}>Hours :</span>
                 <span> 8:00 - 22:00, Mon -Sun</span>
 
               </div>

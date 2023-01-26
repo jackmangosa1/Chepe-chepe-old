@@ -48,7 +48,7 @@ const Hero = ({heroImages}) => {
                                 <UilWhatsapp color="white"/>  
                             </div>
 
-                            <span>Whatsapp Us</span>
+                            <span>Whatsapp order</span>
                         </div>
                     </a>
                     
