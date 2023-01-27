@@ -78,7 +78,7 @@
     overflow-y: scroll;
 }
 
-.dish> .webMenu{
+.dish > .webMenu{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -208,6 +208,54 @@
         color: var(--themeRed);
         cursor: pointer;
     }
+
+    .menu{
+        flex-direction: row;
+        height: 20rem;
+        overflow-x: hidden;
+    }
+    
+    .dish > .webMenu{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .imageWrapper{
+        height: 14rem;
+        width: 14rem;
+    }
+    
+    
+    .details{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        color: white;
+        margin: 7rem 2rem;
+        z-index: 2;
+    }
+    
+    .details>:nth-child(1){
+       font-size: 1.4rem;
+       font-weight: 600;
+    }
+    
+    .details>:nth-child(2){
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    
+    .details>:nth-child(3){
+        font-size: 0.8rem;
+    }
+    
 
    
 

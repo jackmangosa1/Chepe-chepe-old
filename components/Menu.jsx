@@ -55,7 +55,7 @@ const Menu = ({food, foodCategories}) => {
                     
                         return(
                             <div key={id} className={styles.dish}>
-                               {mobile || <div className={styles.webMenu}>
+                                <div className={styles.webMenu}>
                                     <Link href={`./food/${dish.slug.current}`}>
                                             <div className={styles.imageWrapper}>
                                                 <Image 
@@ -81,44 +81,7 @@ const Menu = ({food, foodCategories}) => {
                                             </Link>
                                     </div>
 
-                               </div>}
-                                        
-
-                                
-
-                                {mobile && 
-                                    <div className={styles.mobileMenu}>
-                                        <Swiper
-                                            modules={[Navigation]}
-                                            navigation
-                                            speed={800}
-                                            slidesPerView={1}
-                                            loop
-                                            className={styles.mySwiper}
-                                        >
-
-                                                
-                                                <SwiperSlide>
-                                                    <Image 
-                                                    loader= {() => src} 
-                                                    src={src}
-                                                    alt=""
-                                                    height={200}
-                                                    width={200}
-                                                />
-
-                                                </SwiperSlide> 
-
-                                         
-                                        </Swiper> 
-
-                                    </div> 
-                               
-                              
-                                }
-
-                               
-                            
+                               </div>
                             
                             </div>
                         )
