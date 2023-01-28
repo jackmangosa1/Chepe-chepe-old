@@ -119,6 +119,10 @@
     .hamburger{
         margin-top: 0.5rem;
     }
+
+    .hamburger:hover{
+        cursor: pointer;
+    }
     .mobileMenu{
         position: absolute;
         list-style: none;
@@ -128,12 +132,20 @@
         z-index: 2;
     }
 
+    
+
     .mobileMenu>:nth-child(1){
         position: absolute;
         margin-bottom: 2rem;
         margin-left: 3.5rem;
         margin-top: -1.2rem;
     }
+
+    
+    .mobileMenu>:nth-child(1):hover{
+       cursor: pointer;
+    }
+
 
     .mobileMenu>li:hover{
         cursor: pointer;

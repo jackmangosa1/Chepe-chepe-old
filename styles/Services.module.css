@@ -50,6 +50,9 @@
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 480px) {
+    .heading{
+        margin-top: 1rem;
+    }
     .heading>:nth-child(2), .heading>:nth-child(3){
         font-size: 1rem;
     }
