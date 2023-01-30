@@ -1,7 +1,7 @@
 import styles from "../styles/Hero.module.css";
 import Image from "next/image";
 import Cherry from "../assets/cherry.png";
-import {UilPhone, UilWhatsapp} from "@iconscout/react-unicons";
+import {UilWhatsapp} from "@iconscout/react-unicons";
 import Pizza1 from "../assets/p1.jpg";
 import Link from "next/link";
 import {urlFor} from "../lib/client";

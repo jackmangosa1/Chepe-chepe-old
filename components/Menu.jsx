@@ -3,7 +3,7 @@ import Image from "next/image";
 import {urlFor} from "../lib/client"
 import Link from "next/link"
 import { useState } from "react";
-import {UilAngleRight, UilMessage} from "@iconscout/react-unicons"
+import {UilAngleRight, UilMessage, UilWhatsapp } from "@iconscout/react-unicons"
 import chef from "../assets/chef.jpg"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
@@ -100,10 +100,24 @@ const Menu = ({food, foodCategories}) => {
                     <span>We'd love to hear from you</span>
                     
             </div>
-            <div>
+            {/* <div>
                 <input type="email" className={styles.email}  placeholder="Email Address" />
                 <UilMessage className={styles.message}/>
-            </div>
+               
+            </div> */}
+
+            <Link href="https://api.whatsapp.com/send/?phone=243971534162" >
+                    <a target="_blank" rel="noopener noreferrer">
+                        <div className={styles.contactUs}>
+                            <div>
+                                <UilWhatsapp color="white"/>  
+                            </div>
+
+                            <span>Click to chat</span>
+                        </div>
+                    </a>
+                    
+            </Link>
      
            
         </div>
