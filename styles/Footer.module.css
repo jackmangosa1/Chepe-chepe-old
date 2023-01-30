@@ -99,6 +99,14 @@
 @media screen and (max-width: 480px){
     .container{
         flex-direction: column;
+        margin-left: -2rem;
+    }
+    .social{
+        gap: 1rem;
+    }
+    .social> *{
+        height: 2rem;
+        width: 2rem;
     }
 
 }

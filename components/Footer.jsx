@@ -24,7 +24,7 @@ const Footer = () => {
               <div className={styles.info}>
                 
                 <span className={styles.bold}>Address : </span>
-                <span>Goma, Virunga, Kagephar 74</span>
+                <span>Virunga, Kagephar 74</span>
               </div>
                <div className={styles.info}>
                 <span className={styles.bold}>Phone : </span>
