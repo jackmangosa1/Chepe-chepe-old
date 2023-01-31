@@ -67,3 +67,40 @@
     color: var(--themeRed);
     border: 2px solid var(--themeRed);
 }
+
+/* MOBILE RESPONSIVNESS */
+
+@media screen and (max-width: 480px){
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .table> thead{
+        display: none;
+    }
+
+    .table>tbody>tr>td{
+        display: block;
+        width: 100%;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+    }
+
+
+    .table>tbody>tr>td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        padding-left: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .cross{
+        font-size: 1.5rem;
+    }
+
+}
+

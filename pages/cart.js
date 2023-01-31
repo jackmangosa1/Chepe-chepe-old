@@ -50,8 +50,8 @@ const Cart = () => {
 
                                 const src = urlFor(dish.image).url()
                                 return(
-                                    <tr key={index}>
-                                        <td  className={styles.imageTd}>
+                                    <tr key={index} className={styles.tr}>
+                                        <td  className={styles.imageTd} data-label="Image">
                                             <Image
                                             loader={() => src}
                                             src={src}
@@ -62,11 +62,11 @@ const Cart = () => {
                                             />
                                         </td>
 
-                                        <td>
+                                        <td data-label="Name">
                                             {dish.name}
                                         </td>
 
-                                        <td>
+                                        <td data-label="Size">
                                             {
                                                 dish.size === 0 
                                                 ? "Small"
@@ -76,24 +76,25 @@ const Cart = () => {
                                             }
                                         </td>
 
-                                        <td>
+                                        <td data-label="Price">
                                             {dish.price}
                                         </td>
 
-                                        <td>
+                                        <td data-label="Quantity">
                                             {dish.quantity}
                                         </td>
 
-                                        <td>
+                                        <td data-label="Total">
                                             {dish.price * dish.quantity}
                                         </td>
 
-                                        <td 
+                                        <td
                                             onClick={() =>handleRemove(index)}
                                             style={{
                                                 color: "var(--themeRed)",
                                                 cursor: "pointer"
                                             }}
+                                            className={styles.cross}
                                         >x</td>
 
                                     </tr>
