@@ -2,7 +2,7 @@ import Layout from "../../components/Layout"
 import { client } from "../../lib/client";
 import Image from "next/image";
 import { urlFor } from "../../lib/client";
-import styles from "../../styles/Pizza.module.css"
+import styles from "../../styles/Dish.module.css"
 import LeftArrow from "../../assets/arrowLeft.png"
 import rightArrow from "../../assets/arrowRight.png"
 import { useState } from "react";
@@ -10,9 +10,9 @@ import { useStore } from "../../store/store";
 import toast, {Toaster} from "react-hot-toast"
 
 
-const Food = ({pizza}) => {
+const Food = ({dish}) => {
 
-    const src = urlFor(pizza.image).url()
+    const src = urlFor(dish.image).url()
     const [size, setSize] = useState(1)
     const [quantity, setQuantity] = useState(1)
 
@@ -27,9 +27,9 @@ const Food = ({pizza}) => {
     }
 
     //Add to cart function 
-    const addPizza = useStore((state) => state.addPizza)
+    const addDish = useStore((state) => state.addDish)
     const addToCart = () =>{
-        addPizza({...pizza, price: pizza.price[size], quantity: quantity, size: size })
+        addDish({...dish, price: dish.price[size], quantity: quantity, size: size })
         toast.success("Added to cart")
     }
 
@@ -49,9 +49,9 @@ const Food = ({pizza}) => {
 
                 {/* RIGHT SIDE */}
                 <div className={styles.right}>
-                    <span>{pizza.name}</span>
-                    <span>{pizza.details}</span>
-                    <span> <span style={{color: "var(--themeRed)"}}>$</span> {pizza.price[size]}</span>
+                    <span>{dish.name}</span>
+                    <span>{dish.details}</span>
+                    <span> <span style={{color: "var(--themeRed)"}}>$</span> {dish.price[size]}</span>
                     <div className={styles.size}>
                         <span>Size</span>
                         <div className={styles.sizeVariants}>
@@ -118,7 +118,7 @@ const Food = ({pizza}) => {
 export default Food;
 
 export async function getStaticPaths(){
-    const query = '*[_type=="pizza" && defined(slug.current)][].slug.current'
+    const query = '*[_type=="food" && defined(slug.current)][].slug.current'
     const paths = await client.fetch(query)
 
     return{
@@ -131,11 +131,11 @@ export async function getStaticProps(context){
     
     const {slug = ""} = context.params
     const query = `*[_type =="food" && slug.current == '${slug}'][0]`
-    const pizza = await client.fetch(query)
+    const dish = await client.fetch(query)
 
     return{
         props: {
-            pizza,
+            dish,
 
         }
     }

@@ -11,12 +11,12 @@ import OrderModal from "../components/OrderModal";
 const Cart = () => {
     const [paymentMethod, setPaymentMethod] = useState(null)
     const cartData = useStore((state) => state.cart)
-    const removePizza = useStore((state) => state.removePizza)
+    const removeDish= useStore((state) => state.removeDish)
     const handleRemove = (index) =>{
-        removePizza(index)
+        removeDish(index)
         toast.error("Item Removed")
     }
-    const total = () => cartData.pizzas.reduce((a, b) => a + b.quantity * b.price, 0)
+    const total = () => cartData.dishes.reduce((a, b) => a + b.quantity * b.price, 0)
     const totalAmount = total()
     
     const handleOnDelivery = () =>{
@@ -45,10 +45,10 @@ const Cart = () => {
                         </thead>
 
                         <tbody className={styles.tbody}>
-                            {cartData.pizzas.length > 0 && 
-                                cartData.pizzas.map((pizza, index) =>{
+                            {cartData.dishes.length > 0 && 
+                                cartData.dishes.map((dish, index) =>{
 
-                                const src = urlFor(pizza.image).url()
+                                const src = urlFor(dish.image).url()
                                 return(
                                     <tr key={index}>
                                         <td  className={styles.imageTd}>
@@ -63,29 +63,29 @@ const Cart = () => {
                                         </td>
 
                                         <td>
-                                            {pizza.name}
+                                            {dish.name}
                                         </td>
 
                                         <td>
                                             {
-                                                pizza.size === 0 
+                                                dish.size === 0 
                                                 ? "Small"
-                                                : pizza.size === 1
+                                                : dish.size === 1
                                                 ? "Medium"
                                                 : "Large"
                                             }
                                         </td>
 
                                         <td>
-                                            {pizza.price}
+                                            {dish.price}
                                         </td>
 
                                         <td>
-                                            {pizza.quantity}
+                                            {dish.quantity}
                                         </td>
 
                                         <td>
-                                            {pizza.price * pizza.quantity}
+                                            {dish.price * dish.quantity}
                                         </td>
 
                                         <td 
@@ -114,7 +114,7 @@ const Cart = () => {
                        
                         <div>
                             <span>Items </span>
-                            <span>{cartData.pizzas.length}</span>
+                            <span>{cartData.dishes.length}</span>
                         </div>
 
                         <div>

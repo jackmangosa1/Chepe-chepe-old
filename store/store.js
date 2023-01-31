@@ -26,22 +26,22 @@ export const useStore =  create(
 
          //cart 
          cart : {
-            pizzas : []
+            dishes : []
         },
 
         //Add pizza in cart
-        addPizza: (data) =>
+        addDish: (data) =>
         set ((state) => ({
             cart : {
-                pizzas : [... state.cart.pizzas, data]
+                dishes : [... state.cart.dishes, data]
             }
         })),
 
         //Remove pizza 
-        removePizza : (index) =>
+        removeDish : (index) =>
         set((state) => ({
             cart : {
-                pizzas : state.cart.pizzas.filter((_, i) => i != index)
+                dishes : state.cart.dishes.filter((_, i) => i != index)
             }
 
         })),
@@ -50,7 +50,7 @@ export const useStore =  create(
         resetCart: () => 
         set(() =>({
             cart: {
-                pizzas: []
+                dishes: []
             }
         })),
 
@@ -71,7 +71,7 @@ export const useStore =  create(
        set((state) =>({
         userInfo: null,
         cart: {
-            pizzas: []
+            dishes: []
         }
        }))
 

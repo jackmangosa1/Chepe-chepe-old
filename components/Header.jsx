@@ -24,7 +24,7 @@ const Header = () => {
         setMobileMenu(true)
    }
 
-    const items = useStore((state) => state.cart.pizzas.length)
+    const items = useStore((state) => state.cart.dishes.length)
     const darkMode = useStore((state) => state.mode.darkMode)
     const darkModeOn = useStore((state) => state.darkModeOn)
     const darkModeOff = useStore((state) => state.darkModeOff)
