@@ -121,10 +121,19 @@
     .hamburger{
         height: 2rem;
         width: 2rem;
-        margin-top: 0.2rem;
+        margin-top: 0.1rem;
     }
 
     .hamburger:hover{
+        cursor: pointer;
+    }
+
+    .receipt{
+        height: 2rem;
+        width: 2rem; 
+    }
+
+    .receipt:hover{
         cursor: pointer;
     }
     .mobileMenu{

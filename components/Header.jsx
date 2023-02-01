@@ -115,7 +115,7 @@ const Header = () => {
                 {order && (
                     <Link href={`/order/${order}`}>
                         <div className={styles.cart}>
-                            <UilReceipt size={35} color='#2E2E2E'/>
+                            <UilReceipt size={35} className={styles.receipt}  color='#2E2E2E'/>
                             {order != "" && <div className={styles.badge}>1</div>}
 
                         </div>
@@ -123,7 +123,7 @@ const Header = () => {
                 )}
 
                 {/* MOBILE MENU */}
-                { mobile && <UilBars className={styles.hamburger} onClick={mobileNavigation}/> }
+                { mobile && <UilBars size={35} className={styles.hamburger} onClick={mobileNavigation}/> }
 
                 {(mobile && mobileMenu) &&
                 <ul className={styles.mobileMenu}>

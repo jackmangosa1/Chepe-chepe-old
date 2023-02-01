@@ -69,3 +69,27 @@
     padding: 0.5rem;
     font-size: 0.8rem;
 }
+
+/* MOBILE RESPONSIVNESS */
+
+@media screen and (max-width: 480px){
+
+    .heading{
+        font-size: 1.8rem;
+    }
+    
+    .details{
+        width: 80%;
+    }
+    
+  
+    
+    .details>div{
+        justify-content: space-between;
+    }
+
+    .statusContainer{
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
